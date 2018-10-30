@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import './card_dsp.dart';
 
 
-class MyCustomForm extends StatefulWidget {
+class MyForm extends StatefulWidget {
   @override
-  MyCustomFormState createState() {
+  MyFormState createState() {
 
-    return MyCustomFormState();
+    return MyFormState();
   }
 }
 
-class MyCustomFormState extends State<MyCustomForm> {
+class MyFormState extends State<MyForm> {
 
-  // Note: This is a GlobalKey<FormState>, not a GlobalKey<MyCustomFormState>!
+  // Note: This is a GlobalKey<FormState>, not a GlobalKey<MyFormState>!
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -22,7 +22,6 @@ class MyCustomFormState extends State<MyCustomForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ProductCard(),
           Padding(
