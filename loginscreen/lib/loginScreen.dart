@@ -7,7 +7,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen>
     with TickerProviderStateMixin {
-
   @override
   void initState() {
     super.initState();
@@ -17,13 +16,7 @@ class _LoginScreenState extends State<LoginScreen>
     return new Container(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
-      color: Colors.red,
-       /* image: DecorationImage(
-          colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(1.0), BlendMode.dstATop),
-          image: AssetImage('assets/images/mountains.jpg'),
-          fit: BoxFit.cover,
-        ),*/
+        color: Colors.red,
       ),
       child: new Column(
         children: <Widget>[
@@ -70,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen>
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.white,
-                   // highlightedBorderColor: Colors.red,
+                    // highlightedBorderColor: Colors.red,
                     onPressed: () => gotoSignup(),
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
@@ -82,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen>
                         children: <Widget>[
                           new Expanded(
                             child: Text(
-                              "SIGN UP",
+                              "Sign Up",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.redAccent,
@@ -144,23 +137,41 @@ class _LoginScreenState extends State<LoginScreen>
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Colors.white,
-        /*image: DecorationImage(
-          colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(0.05), BlendMode.dstATop),
-          image: AssetImage('assets/images/mountains.jpeg'),
-          fit: BoxFit.cover,
-        ),*/
       ),
       child: new Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(120.0),
+            padding: EdgeInsets.only(left: 80.0, right: 80.0, top: 80.0),
             child: Center(
               child: Icon(
                 Icons.business_center,
                 color: Colors.redAccent,
-                size: 80.0,
+                size: 90.0,
+                semanticLabel: 'JuteBag',
+                textDirection: null,
               ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 50.0),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Jute",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 30.0,
+                  ),
+                ),
+                Text(
+                  "Bag",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ),
           new Row(
@@ -169,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen>
                 child: new Padding(
                   padding: const EdgeInsets.only(left: 40.0),
                   child: new Text(
-                    "EMAIL",
+                    "Email",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -182,14 +193,15 @@ class _LoginScreenState extends State<LoginScreen>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 0.05),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                    color: Colors.redAccent,
-                    width: 0.5,
-                    style: BorderStyle.solid),
+                  color: Colors.redAccent,
+                  width: 0.5,
+                  // style: BorderStyle.solid
+                ),
               ),
             ),
             padding: const EdgeInsets.only(left: 0.0, right: 10.0),
@@ -199,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen>
               children: <Widget>[
                 new Expanded(
                   child: TextField(
-                    obscureText: true,
+                    obscureText: false,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -212,7 +224,8 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
           Divider(
-            height: 24.0,
+            height: 15.0,
+            color: Colors.white,
           ),
           new Row(
             children: <Widget>[
@@ -220,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen>
                 child: new Padding(
                   padding: const EdgeInsets.only(left: 40.0),
                   child: new Text(
-                    "PASSWORD",
+                    "Password",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -233,14 +246,14 @@ class _LoginScreenState extends State<LoginScreen>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                    color: Colors.redAccent,
-                    width: 0.5,
-                    style: BorderStyle.solid),
+                  color: Colors.redAccent,
+                  width: 0.5,
+                ),
               ),
             ),
             padding: const EdgeInsets.only(left: 0.0, right: 10.0),
@@ -262,13 +275,9 @@ class _LoginScreenState extends State<LoginScreen>
               ],
             ),
           ),
-          Divider(
-            height: 24.0,
-          ),
           new Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: new FlatButton(
@@ -281,7 +290,10 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                     textAlign: TextAlign.end,
                   ),
-                  onPressed: () => {},
+                  onPressed: () {
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text('Functionality yet to be added.')));
+                  },
                 ),
               ),
             ],
@@ -298,7 +310,10 @@ class _LoginScreenState extends State<LoginScreen>
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     color: Colors.redAccent,
-                    onPressed: () => {},
+                    onPressed: () {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('Functionality yet to be added.')));
+                    },
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -309,7 +324,45 @@ class _LoginScreenState extends State<LoginScreen>
                         children: <Widget>[
                           new Expanded(
                             child: Text(
-                              "LOGIN",
+                              "Login",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          new Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 20.0),
+            alignment: Alignment.center,
+            child: new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new FlatButton(
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0),
+                    ),
+                    color: Colors.redAccent,
+                    onPressed: () => gotoSignup(),
+                    child: new Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 20.0,
+                        horizontal: 20.0,
+                      ),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Expanded(
+                            child: Text(
+                              "Sign Up",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.white,
@@ -337,7 +390,7 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                 ),
                 Text(
-                  "OR CONNECT WITH",
+                  "Or Connect With",
                   style: TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
@@ -376,7 +429,11 @@ class _LoginScreenState extends State<LoginScreen>
                                 children: <Widget>[
                                   new Expanded(
                                     child: new FlatButton(
-                                      onPressed: ()=>{},
+                                      onPressed: () {
+                                        Scaffold.of(context).showSnackBar(SnackBar(
+                                            content: Text(
+                                                'Functionality yet to be added.')));
+                                      },
                                       padding: EdgeInsets.only(
                                         top: 20.0,
                                         bottom: 20.0,
@@ -385,14 +442,8 @@ class _LoginScreenState extends State<LoginScreen>
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-                                         /* Icon(
-                                            const IconData(0xea90,
-                                                fontFamily: 'icomoon'),
-                                            color: Colors.white,
-                                            size: 15.0,
-                                          ),*/
                                           Text(
-                                            "FACEBOOK",
+                                            "Facebook",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -430,7 +481,11 @@ class _LoginScreenState extends State<LoginScreen>
                                 children: <Widget>[
                                   new Expanded(
                                     child: new FlatButton(
-                                      onPressed: ()=>{},
+                                      onPressed: () {
+                                        Scaffold.of(context).showSnackBar(SnackBar(
+                                            content: Text(
+                                                'Functionality yet to be added.')));
+                                      },
                                       padding: EdgeInsets.only(
                                         top: 20.0,
                                         bottom: 20.0,
@@ -439,14 +494,8 @@ class _LoginScreenState extends State<LoginScreen>
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-                                         /* Icon(
-                                            const IconData(0xea88,
-                                                fontFamily: 'icomoon'),
-                                            color: Colors.white,
-                                            size: 15.0,
-                                          ),*/
                                           Text(
-                                            "GOOGLE",
+                                            "Google",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -478,17 +527,11 @@ class _LoginScreenState extends State<LoginScreen>
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Colors.white,
-        /*image: DecorationImage(
-          colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(0.05), BlendMode.dstATop),
-          image: AssetImage('assets/images/mountains.jpg'),
-          fit: BoxFit.cover,
-        ),*/
       ),
       child: new Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(100.0),
+            padding: EdgeInsets.only(left: 80.0, right: 80.0, top: 80.0),
             child: Center(
               child: Icon(
                 Icons.business_center,
@@ -497,13 +540,35 @@ class _LoginScreenState extends State<LoginScreen>
               ),
             ),
           ),
+          Container(
+            padding: EdgeInsets.only(bottom: 50.0),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Jute",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 30.0,
+                  ),
+                ),
+                Text(
+                  "Bag",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
           new Row(
             children: <Widget>[
               new Expanded(
                 child: new Padding(
                   padding: const EdgeInsets.only(left: 40.0),
                   child: new Text(
-                    "EMAIL",
+                    "Your Name",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -516,7 +581,7 @@ class _LoginScreenState extends State<LoginScreen>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
@@ -533,7 +598,59 @@ class _LoginScreenState extends State<LoginScreen>
               children: <Widget>[
                 new Expanded(
                   child: TextField(
-                    obscureText: true,
+                    obscureText: false,
+                    textAlign: TextAlign.left,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'JuteBag',
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            height: 14.0,
+            color: Colors.white,
+          ),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: new Text(
+                    "Email",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
+                      fontSize: 15.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          new Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                    color: Colors.redAccent,
+                    width: 0.5,
+                    style: BorderStyle.solid),
+              ),
+            ),
+            padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+            child: new Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Expanded(
+                  child: TextField(
+                    obscureText: false,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -546,7 +663,8 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
           Divider(
-            height: 24.0,
+            height: 14.0,
+            color: Colors.white,
           ),
           new Row(
             children: <Widget>[
@@ -554,7 +672,7 @@ class _LoginScreenState extends State<LoginScreen>
                 child: new Padding(
                   padding: const EdgeInsets.only(left: 40.0),
                   child: new Text(
-                    "PASSWORD",
+                    "Password",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -567,7 +685,7 @@ class _LoginScreenState extends State<LoginScreen>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
@@ -597,7 +715,8 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
           Divider(
-            height: 24.0,
+            height: 14.0,
+            color: Colors.white,
           ),
           new Row(
             children: <Widget>[
@@ -605,7 +724,7 @@ class _LoginScreenState extends State<LoginScreen>
                 child: new Padding(
                   padding: const EdgeInsets.only(left: 40.0),
                   child: new Text(
-                    "CONFIRM PASSWORD",
+                    "Confirm Password",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -618,7 +737,7 @@ class _LoginScreenState extends State<LoginScreen>
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
@@ -648,7 +767,60 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
           Divider(
-            height: 24.0,
+            height: 14.0,
+            color: Colors.white,
+          ),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: new Text(
+                    "Mobile",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
+                      fontSize: 15.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          new Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(left: 40.0, right: 40.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                    color: Colors.redAccent,
+                    width: 0.5,
+                    style: BorderStyle.solid),
+              ),
+            ),
+            padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+            child: new Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Expanded(
+                  child: TextField(
+                    obscureText: false,
+                    textAlign: TextAlign.left,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: '1234567890',
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(
+            height: 1.0,
+            color: Colors.white,
           ),
           new Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -656,23 +828,22 @@ class _LoginScreenState extends State<LoginScreen>
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: new FlatButton(
-                  child: new Text(
-                    "Already have an account?",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.redAccent,
-                      fontSize: 15.0,
+                    child: new Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.redAccent,
+                        fontSize: 15.0,
+                      ),
+                      textAlign: TextAlign.end,
                     ),
-                    textAlign: TextAlign.end,
-                  ),
-                  onPressed: () => gotoLogin()
-                ),
+                    onPressed: () => gotoLogin()),
               ),
             ],
           ),
           new Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 50.0),
+            margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 15.0),
             alignment: Alignment.center,
             child: new Row(
               children: <Widget>[
@@ -682,7 +853,10 @@ class _LoginScreenState extends State<LoginScreen>
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     color: Colors.redAccent,
-                    onPressed: () => {},
+                    onPressed: () {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('Functionality yet to be added.')));
+                    },
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -693,7 +867,7 @@ class _LoginScreenState extends State<LoginScreen>
                         children: <Widget>[
                           new Expanded(
                             child: Text(
-                              "SIGN UP",
+                              "Sign Up",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.white,
@@ -730,7 +904,8 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 
-  PageController _controller = new PageController(initialPage: 1, viewportFraction: 1.0);
+  PageController _controller =
+      new PageController(initialPage: 0, viewportFraction: 1.0);
 
   @override
   Widget build(BuildContext context) {
@@ -739,7 +914,7 @@ class _LoginScreenState extends State<LoginScreen>
         child: PageView(
           controller: _controller,
           physics: new AlwaysScrollableScrollPhysics(),
-          children: <Widget>[loginPage(), homePage(), signupPage()],
+          children: <Widget>[loginPage(), signupPage()],
           scrollDirection: Axis.horizontal,
         ));
   }
